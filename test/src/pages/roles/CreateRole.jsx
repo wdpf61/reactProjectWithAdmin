@@ -3,6 +3,9 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 
 const CreateRole = () => {
+ const baseUrl = import.meta.env.VITE_BASE_URL;
+
+
  const [role, setRole]= useState({
    name:"",
   //  email:""
@@ -12,11 +15,14 @@ const CreateRole = () => {
 
   const handleChange= (e)=>{
     const {value, name}= e.target;
-    console.log(name, value);
+    console.log(value, name);
+
     setRole((prv)=>({
       ...prv,
       [name]:value
     }));
+
+    
   }
 
   const handleSubmit=(e)=>{
@@ -24,7 +30,7 @@ const CreateRole = () => {
      console.log(role); 
      
      axios({
-      url:"http://localhost/wdpf-batch-66_class/react/admin/api/role/save",
+      url:`${baseUrl}/role/save`,
       method:"POST",
       data:{role}
      })
@@ -47,10 +53,10 @@ const CreateRole = () => {
          <input name='name' type="text" onChange={handleChange} />
       </div>
 
-      {/* <div>
+      <div>
          <label htmlFor="">email</label> <br />
          <input name='email' type="text" onChange={handleChange} />
-      </div> */}
+      </div>
 
       <br />
       <br />

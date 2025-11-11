@@ -27,6 +27,7 @@ class RoleApi{
 		echo json_encode(["success" =>"saved"]);
 	}
 	function update($data,$file=[]){
+		$data= $data['role'];
 		$role=new Role();
 		$role->id=$data["id"];
 		$role->name=$data["name"];

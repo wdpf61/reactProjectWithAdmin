@@ -4,10 +4,10 @@ import { Link } from 'react-router-dom';
 
 
 const RoleList = () => {
-
+  const baseUrl = import.meta.env.VITE_BASE_URL;
   const getRoles = () => {
     axios({
-      url: "http://localhost/wdpf-batch-66_class/react/admin/api/role",
+      url: `${baseUrl}/role`,
       method: "GET",
       data: {}
     })
@@ -34,7 +34,7 @@ const RoleList = () => {
 
   function deleteRole(id) {
     axios({
-      url: "http://localhost/wdpf-batch-66_class/react/admin/api/role/delete",
+      url: `${baseUrl}/role/delete`,
       method: "DELETE",
       data: { id: id }
     })
@@ -60,13 +60,17 @@ const RoleList = () => {
         </thead>
         <tbody>
           {roles.map((role, i) => (
-
-            <tr>
+            <tr key={i}>
               <th scope="row">{++i}</th>
               <td>{role.name}</td>
               <td>
-                <Link className='btn btn-info' >Edit</Link>
-                <a className='btn btn-danger' onClick={() => deleteRole(role.id)}  >Delete</a>
+                <Link className='btn btn-info' to={`/role/edit/${role.id}`} >Edit</Link>
+                <a className='btn btn-danger' onClick={() => {
+                   if(confirm("Are Your Sure")){
+                     deleteRole(role.id)
+                   }
+                }
+                }  >Delete</a>
               </td>
             </tr>
           ))}

@@ -21,7 +21,7 @@ function App() {
              
              <Route path='/role' element={<RoleList/>} />
              <Route path='/role/create' element={<CreateRole/>} />
-             <Route path='/role/edit:id' element={<EditRole/>} />
+             <Route path='/role/edit/:roleId' element={<EditRole/>} />
 
              
              <Route path='/user' element={<UserList/>} />
