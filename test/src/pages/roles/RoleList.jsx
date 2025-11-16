@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 
 const RoleList = () => {
-  const baseUrl = import.meta.env.VITE_BASE_URL;
+  const baseUrl = import.meta.env.VITE_API_BASE_URL;
   const getRoles = () => {
     axios({
       url: `${baseUrl}/role`,
@@ -74,16 +74,8 @@ const RoleList = () => {
               </td>
             </tr>
           ))}
-
-
-
-
-
         </tbody>
       </table>
-
-
-
 
     </>
   )

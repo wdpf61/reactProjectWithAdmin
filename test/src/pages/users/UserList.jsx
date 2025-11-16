@@ -8,7 +8,7 @@ const UserList = () => {
     useEffect(
         () => {
             axios({
-                url: "https://jsonplaceholder.typicode.com/users",
+                url: "http://nuruzzaman.intelsofts.com/php/api/customer",
                 method: "GET",
                 data: {}
             })
@@ -29,8 +29,8 @@ const UserList = () => {
                     <tr>
                         <th scope="col">#</th>
                         <th scope="col">Name</th>
-                        <th scope="col">User Name</th>
                         <th scope="col">Email</th>
+                        <th scope="col">Phone</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -38,8 +38,8 @@ const UserList = () => {
                         <tr key={i}>
                             <th scope="row">{++i}</th>
                             <td>{user.name}</td>
-                            <td>{user.username}</td>
                             <td>{user.email}</td>
+                            <td>{user.phone}</td>
                         </tr>
                     ))}
 
