@@ -10,10 +10,10 @@ const Header = () => {
       {/* Logo */}
       <div className="header-left">
         <a href="index.html" className="logo">
-          <img src="/assets/img/logo.svg" alt="Logo" />
+          <img src="../assets/img/logo.svg" alt="Logo" />
         </a>
         <a href="index.html" className="dark-logo">
-          <img src="/assets/img/logo-white.svg" alt="Logo" />
+          <img src="../assets/img/logo-white.svg" alt="Logo" />
         </a>
       </div>
       {/* Sidebar Menu Toggle Button */}
@@ -90,31 +90,31 @@ const Header = () => {
             {/* Language Dropdown */}
             <div className="nav-item dropdown has-arrow flag-nav me-2">
               <a className="btn btn-menubar" data-bs-toggle="dropdown" href="javascript:void(0);" role="button">
-                <img src="/assets/img/flags/us.svg" alt="Language" className="img-fluid" />
+                <img src="../assets/img/flags/us.svg" alt="Language" className="img-fluid" />
               </a>
               <ul className="dropdown-menu p-2">
                 {/* item*/}
                 <li>
                   <a href="javascript:void(0);" className="dropdown-item">
-                    <img src="/assets/img/flags/us.svg" alt="flag" className="me-2" />English
+                    <img src="../assets/img/flags/us.svg" alt="flag" className="me-2" />English
                   </a>
                 </li>
                 {/* item*/}
                 <li>
                   <a href="javascript:void(0);" className="dropdown-item">
-                    <img src="/assets/img/flags/de.svg" alt="flag" className="me-2" />German
+                    <img src="../assets/img/flags/de.svg" alt="flag" className="me-2" />German
                   </a>
                 </li>
                 {/* item*/}
                 <li>
                   <a href="javascript:void(0);" className="dropdown-item">
-                    <img src="/assets/img/flags/fr.svg" alt="flag" className="me-2" />French
+                    <img src="../assets/img/flags/fr.svg" alt="flag" className="me-2" />French
                   </a>
                 </li>
                 {/* item*/}
                 <li>
                   <a href="javascript:void(0);" className="dropdown-item">
-                    <img src="/assets/img/flags/ae.svg" alt="flag" className="me-2" />Arabic
+                    <img src="../assets/img/flags/ae.svg" alt="flag" className="me-2" />Arabic
                   </a>
                 </li>
               </ul>
@@ -153,7 +153,7 @@ const Header = () => {
                     <div className="d-flex">
                       <div className="me-2 position-relative flex-shrink-0">
                         {/*  */}
-                        <img className="avatar-md rounded-circle" alt="User Img" data-cfsrc="/assets/img/profiles/avatar-05.jpg" style={{display: 'none', visibility: 'hidden'}} /><noscript>&lt;img src="/assets/img/profiles/avatar-05.jpg" class="avatar-md rounded-circle" alt="User Img"&gt;</noscript>
+                        <img className="avatar-md rounded-circle" alt="User Img" data-cfsrc="../assets/img/profiles/avatar-05.jpg" style={{display: 'none', visibility: 'hidden'}} /><noscript>&lt;img src="/assets/img/profiles/avatar-05.jpg" class="avatar-md rounded-circle" alt="User Img"&gt;</noscript>
                       </div>
                       <div className="flex-grow-1">
                         <p className="mb-0 fw-semibold text-dark">John Smith</p>
@@ -295,13 +295,13 @@ const Header = () => {
             <div className="dropdown profile-dropdown">
               <a href="javascript:void(0);" className="dropdown-toggle d-flex align-items-center" data-bs-toggle="dropdown" data-bs-auto-close="outside">
                 <span className="avatar online">
-                  <img alt="Img" className="img-fluid rounded-circle" data-cfsrc="/assets/img/profiles/avatar-01.jpg" style={{display: 'none', visibility: 'hidden'}} /><noscript>&lt;img src="/assets/img/profiles/avatar-01.jpg" alt="Img" class="img-fluid rounded-circle"&gt;</noscript>
+                  <img alt="Img" src="../assets/img/profiles/avatar-01.jpg" className="img-fluid rounded-circle" data-cfsrc="../assets/img/profiles/avatar-01.jpg" style={{display: 'visible', visibility: 'visible'}} /><noscript>&lt;img  alt="Img" class="img-fluid rounded-circle"&gt;</noscript>
                 </span>
               </a>
               <div className="dropdown-menu p-2">
                 <div className="d-flex align-items-center bg-light rounded-1 p-2 mb-2">
                   <span className="avatar avatar-lg me-2">
-                    <img alt="img" className="rounded-circle" data-cfsrc="/assets/img/profiles/avatar-01.jpg" style={{display: 'none', visibility: 'hidden'}} /><noscript>&lt;img src="/assets/img/profiles/avatar-01.jpg" alt="img" class="rounded-circle"&gt;</noscript>
+                    <img alt="img" src="../assets/img/profiles/avatar-01.jpg" className="rounded-circle" data-cfsrc="../assets/img/profiles/avatar-01.jpg" style={{display: 'visible', visibility:'visible'}} /><noscript>&lt; img  alt="img" class="rounded-circle" &gt;</noscript>
                   </span>
                   <div>
                     <h6 className="fs-14 fw-medium mb-1">Jafna Cremson</h6>
@@ -335,7 +335,7 @@ const Header = () => {
       <div className="dropdown mobile-user-menu profile-dropdown">
         <a href="javascript:void(0);" className="dropdown-toggle d-flex align-items-center" data-bs-toggle="dropdown" data-bs-auto-close="outside">
           <span className="avatar avatar-md online">
-            <img alt="Img" className="img-fluid rounded-circle" data-cfsrc="/assets/img/profiles/avatar-01.jpg" style={{display: 'none', visibility: 'hidden'}} /><noscript>&lt;img src="/assets/img/profiles/avatar-01.jpg" alt="Img" class="img-fluid rounded-circle"&gt;</noscript>
+            <img alt="Img" className="img-fluid rounded-circle" data-cfsrc="../assets/img/profiles/avatar-01.jpg" style={{display: 'none', visibility: 'hidden'}} /><noscript>&lt;img src="../assets/img/profiles/avatar-01.jpg" alt="Img" class="img-fluid rounded-circle"&gt;</noscript>
           </span>
         </a>
         <div className="dropdown-menu p-2 mt-0">

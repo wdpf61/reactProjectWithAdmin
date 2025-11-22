@@ -4,7 +4,7 @@ class CustomerApi{
 	}
 
 	function index(){
-		echo json_encode(["customers"=>Customer::all()]);
+		echo json_encode(["customers"=>Customer::all(), "products"=>Product::all()]);
 	}
 	
 	function pagination($data){
@@ -20,15 +20,19 @@ class CustomerApi{
 		echo json_encode(["success" => "yes"]);
 	}
 	function save($data,$file=[]){
+
+		// // $data= $data['Customer'];
+		// // $data= $data['items'];
 		$customer=new Customer();
 		$customer->name=$data["name"];
 		$customer->mobile=$data["mobile"];
 		$customer->email=$data["email"];
 		$customer->address=$data["address"];
-		$customer->photo=upload($file["photo"], "../img",$data["name"]);
+	    $customer->photo=upload($file["photo"], "../img",$data["name"]);
 
 		$customer->save();
-		echo json_encode(["success" => "yes"]);
+
+		echo json_encode(["success" => $data, "file" =>$file ]);
 	}
 	function update($data,$file=[]){
 		$customer=new Customer();

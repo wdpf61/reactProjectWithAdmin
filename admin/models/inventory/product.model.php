@@ -25,6 +25,15 @@ public static function GetAll(){
    $products= $db->query("select * from {$tx}products");
    return $products->fetch_all(MYSQLI_ASSOC);
 }
+public static function all(){
+   global $db, $tx; 
+   $result= $db->query("select * from {$tx}products");
+   $data=[];
+		while($products=$result->fetch_object()){
+			$data[]=$products;
+		}
+	return $data;
+}
 
 public static function find($id){
    global $db, $tx; 
