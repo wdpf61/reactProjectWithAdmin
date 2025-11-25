@@ -34,7 +34,7 @@ class AuthApi extends Api{
        
             $username=trim($data["username"]);
             $password=trim($data["password"]);
-             $result=$db->query("select u.id,u.name,u.full_name,u.password,u.email,u.photo,u.mobile,u.role_id,r.name role from {$tx}users u,{$tx}roles r where r.id=u.role_id and u.name='$username' and u.inactive=0");
+             $result=$db->query("select u.id,u.name,u.full_name,u.password,u.email,u.photo,u.mobile,u.role_id,r.name role from {$tx}users u,{$tx}roles r where r.id=u.role_id and u.name='$username' ");
                             
              $user=$result->fetch_object();
        
@@ -54,7 +54,11 @@ class AuthApi extends Api{
 
                         $token= $jwt->generate($payload);
                         
-                        echo json_encode(["success"=>1,"token"=>$token]);
+                        echo json_encode(["success"=>1,"token"=>$token , 
+                             "id"=>$user->id,
+                            "name"=>$user->name,
+                            "role_id"=>$user->role_id,
+                            "email"=>$user->email]);
                 }else{
                         echo json_encode(["success"=>0,"username"=>$username,"password"=>$password]);
                 }     
