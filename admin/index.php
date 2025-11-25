@@ -1,6 +1,6 @@
 <?php session_start();  
   require_once("configs/db_config.php");
-  $base_url="cpanel";
+  // $base_url="cpanel";
   //require_once("library/classes/system_log.class.php");
   
   if(isset($_POST["btnSignIn"])){
@@ -8,11 +8,18 @@
      $username=trim($_POST["txtUsername"]);
      $password=trim($_POST["txtPassword"]);
      //echo $username," ",$password;
-     //$result=$db->query("select u.id,u.username,r.name from {$tx}users u,{$tx}roles r where r.id=u.role_id and u.username='$username' and u.password='$password'");
-     $result=$db->query("select u.id,u.full_name,u.password,u.email,u.photo,u.mobile,u.role_id,r.name role from {$tx}users u,{$tx}roles r where r.id=u.role_id and u.name='$username' and u.inactive=0");
+    //  $result=$db->query("select u.id,u.username,r.name from {$tx}users u,{$tx}roles r where r.id=u.role_id and u.username='$username' and u.password='$password'");
+     $result=$db->query("select u.id,u.full_name,u.password,u.email,u.photo,u.mobile,u.role_id,r.name role from {$tx}users u,{$tx}roles r where r.id=u.role_id and u.name='$username'");
+    //  $result=$db->query("select  u.*,  r.name role from {$tx}users u , {$tx}roles r  where  u.name='$username'  and r.id=u.role_id ");
+
+     
       
          
       $user=$result->fetch_object();
+
+      print_r($user);
+      print_r(   $username);
+      print_r(   $password);
 
       if($user && password_verify($password,$user->password)){
         
@@ -27,6 +34,9 @@
         header("location:home");
       }else{
         echo "Incorrect username or password";
+      
+   
+
       }
         
         

@@ -10,10 +10,10 @@ const Header = () => {
       {/* Logo */}
       <div className="header-left">
         <a href="index.html" className="logo">
-          <img src="../assets/img/logo.svg" alt="Logo" />
+          <img src="/assets/img/logo.svg" alt="Logo" />
         </a>
         <a href="index.html" className="dark-logo">
-          <img src="../assets/img/logo-white.svg" alt="Logo" />
+          <img src="/assets/img/logo-white.svg" alt="Logo" />
         </a>
       </div>
       {/* Sidebar Menu Toggle Button */}

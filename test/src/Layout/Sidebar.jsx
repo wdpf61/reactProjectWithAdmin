@@ -70,16 +70,16 @@ const Sidebar = () => {
       {/* Start Logo */}
       <div className="sidebar-logo">
         <a href="index.html" className="logo logo-normal">
-          <img src="../assets/img/logo.svg" alt="Logo" />
+          <img src="/assets/img/logo.svg" alt="Logo" />
         </a>
         <a href="index.html" className="logo-small">
-          <img src="../assets/img/logo-small.svg" alt="Logo" />
+          <img src="/assets/img/logo-small.svg" alt="Logo" />
         </a>
         <a href="index.html" className="dark-logo">
-          <img src="../assets/img/logo-white.svg" alt="Logo" />
+          <img src="/assets/img/logo-white.svg" alt="Logo" />
         </a>
         <a href="index.html" className="dark-small">
-          <img src="../assets/img/logo-small-white.svg" alt="Logo" />
+          <img src="/assets/img/logo-small-white.svg" alt="Logo" />
         </a>
         {/* Sidebar Hover Menu Toggle Button */}
         <a id="toggle_btn" href="javascript:void(0);">

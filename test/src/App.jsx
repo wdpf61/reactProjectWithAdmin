@@ -1,4 +1,4 @@
-import { useState } from 'react'
+
 import Layout from './Layout/Layout'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import RoleList from './pages/roles/RoleList'
@@ -10,19 +10,26 @@ import Dashboard from './pages/home/Dashboard'
 import CreateCustomer from './pages/customer/CreateCustomer'
 import CustomerList from './pages/customer/CustomerList'
 import CreateOrder from './pages/order/CreateOrder'
+import LoginLayout from './login/LoginLayout'
+import PrivateRoute from './route/PrivateRoute'
+import Login from './login/Login'
+import Purchase from './pages/purchase/Purchase'
+
 
 
 
 function App() {
-  
+
   return (
     <>
      
 
       <BrowserRouter basename={import.meta.env.BASE_URL}>
         <Routes>
-          <Route path="/" element={<Layout/>}>
-             
+          <Route path='/login'   element={<Login/>}  />
+          
+          {/* <Route path="/" element={ <PrivateRoute> <Layout/> </PrivateRoute>  }> */}
+          <Route path="/" element={ <Layout/> }>
              <Route path='/' element={<Dashboard/>} />
              <Route path='/role' element={<RoleList/>} />
              <Route path='/role/create' element={<CreateRole/>} />
@@ -37,14 +44,18 @@ function App() {
              <Route path='/customer/create' element={<CreateCustomer/>} />
 
 
-
-             <Route path='/order/create' element={<CreateOrder/>} />
+             <Route path='/order/create' element={<CreateOrder/>}/>
+             <Route path='/purchase/create' element={<Purchase/>}/>
 
              
           </Route>
+
+         
         </Routes>
       </BrowserRouter>
+      
 
+     
 
     </>
   )
