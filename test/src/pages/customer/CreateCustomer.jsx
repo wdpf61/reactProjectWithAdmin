@@ -2,12 +2,13 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import SubmitButton from '../../components/SubmitButton'
 import axios from 'axios'
-import UseCreateApi from '../../components/UseCreateApi'
+import useCreateApi from '../../hooks/UseCreateApi'
+
 
 const CreateCustomer = () => {
   const baseUrl = import.meta.env.VITE_API_BASE_URL;
 
-  const {submit} = UseCreateApi(`${baseUrl}/customer/save`);
+  const {submit} = useCreateApi(`${baseUrl}/customer/save`);
   const [Customer, setCustomer] = useState({
     name: "",
     mobile: "",

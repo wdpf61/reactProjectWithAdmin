@@ -1,5 +1,10 @@
-const Dashboard = () => {
+import { useContext } from "react"
+import { AuthContext } from "../../route/PrivateRoute";
 
+const Dashboard = () => {
+   const user= useContext(AuthContext);
+   console.log(user);
+   
   return (
     <>
     

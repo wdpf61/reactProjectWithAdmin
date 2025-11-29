@@ -1,7 +1,8 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { pl } from 'zod/locales';
-import useCart from '../../components/useCart';
+import useCart from '../../hooks/useCart';
+
 // import "./orderstyle.css";
 const CreateOrder = () => {
 

@@ -1,6 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { AuthContext } from '../route/PrivateRoute';
 
 const Header = () => {
+
+  const user= useContext(AuthContext);
+  console.log(user);
   return (
     <>
     
@@ -304,7 +308,7 @@ const Header = () => {
                     <img alt="img" src="../assets/img/profiles/avatar-01.jpg" className="rounded-circle" data-cfsrc="../assets/img/profiles/avatar-01.jpg" style={{display: 'visible', visibility:'visible'}} /><noscript>&lt; img  alt="img" class="rounded-circle" &gt;</noscript>
                   </span>
                   <div>
-                    <h6 className="fs-14 fw-medium mb-1">Jafna Cremson</h6>
+                    <h6 className="fs-14 fw-medium mb-1">{user.name}</h6>
                     <p className="fs-13">Administrator</p>
                   </div>
                 </div>

@@ -42,7 +42,7 @@ const Purchase = () => {
                             <div className="row g-3">
                                 <div className="col-md-4">
                                     <label className="form-label">Vendor</label>
-                                    <select className="form-select" name="vendor"  onChange={}>
+                                    <select className="form-select" name="vendor"  >
                                         <option selected disabled>Select supplier</option>
 
                                         {suppliers.map((s, i) => (

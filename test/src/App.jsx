@@ -14,13 +14,25 @@ import LoginLayout from './login/LoginLayout'
 import PrivateRoute from './route/PrivateRoute'
 import Login from './login/Login'
 import Purchase from './pages/purchase/Purchase'
+import Parent from './context/Parent'
+import { createContext, useContext } from 'react'
 
-
+export const  UserContext= createContext();
 
 
 function App() {
 
+
+  const user= {
+    name:"Hasan",
+    age:25,
+    email:"hasan@gmail.com"
+  }
+
+
   return (
+
+    
     <>
      
 
@@ -28,8 +40,8 @@ function App() {
         <Routes>
           <Route path='/login'   element={<Login/>}  />
           
-          {/* <Route path="/" element={ <PrivateRoute> <Layout/> </PrivateRoute>  }> */}
-          <Route path="/" element={ <Layout/> }>
+          <Route path="/" element={ <PrivateRoute> <Layout/> </PrivateRoute>  }>
+         
              <Route path='/' element={<Dashboard/>} />
              <Route path='/role' element={<RoleList/>} />
              <Route path='/role/create' element={<CreateRole/>} />
@@ -54,9 +66,9 @@ function App() {
         </Routes>
       </BrowserRouter>
       
-
-     
-
+     {/* <UserContext.Provider value={user}>
+     <Parent />
+     </UserContext.Provider> */}
     </>
   )
 }

@@ -49,13 +49,15 @@ class AuthApi extends Api{
                             "email"=>$user->email,
                             "ip"=>get_ip(),
                             "iss"=>"jwt.server",
-                            "aud"=>"intels.co"
+                            "aud"=>"intelsofts.com"
                         ];
 
                         $token= $jwt->generate($payload);
                         
-                        echo json_encode(["success"=>1,"token"=>$token , 
-                             "id"=>$user->id,
+                        echo json_encode(
+                            ["success"=>1,
+                            "token"=>$token , 
+                            "id"=>$user->id,
                             "name"=>$user->name,
                             "role_id"=>$user->role_id,
                             "email"=>$user->email]);

@@ -1,20 +1,16 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 
-const UseFetchApi = (url) => {
+const useCreateApi = (url) => {
   const [loading, setloading] = useState(true);
   const [data, setdata] = useState([]);
   const [err, setErro] = useState("");
-  const baseUrl = import.meta.env.VITE_API_BASE_URL;
-  const token= localStorage.getItem("token");
-  useEffect(() => {
+
+  const submit = (items) => {
     axios({
       url: `${url}`,
-      method: "GET",
-      data: {},
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
+      method: "POST",
+      data: items ,
     })
       .then((res) => {
         console.log(res.data);
@@ -25,9 +21,9 @@ const UseFetchApi = (url) => {
         console.log(err);
         setErro(err);
       });
-  }, [url]);
+  };
 
-  return { loading, data, err };
+  return { loading, data, err , submit};
 };
 
-export default UseFetchApi;
+export default useCreateApi;
