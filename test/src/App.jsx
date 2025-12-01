@@ -16,6 +16,8 @@ import Login from './login/Login'
 import Purchase from './pages/purchase/Purchase'
 import Parent from './context/Parent'
 import { createContext, useContext } from 'react'
+import OrderList from './pages/order/OrderList'
+import OrderInvoice from './pages/order/OrderInvoice'
 
 export const  UserContext= createContext();
 
@@ -56,7 +58,10 @@ function App() {
              <Route path='/customer/create' element={<CreateCustomer/>} />
 
 
+             <Route path='/order' element={<OrderList/>}/>
              <Route path='/order/create' element={<CreateOrder/>}/>
+             <Route path='/order/invoice/:id' element={<OrderInvoice/>}/>
+
              <Route path='/purchase/create' element={<Purchase/>}/>
 
              

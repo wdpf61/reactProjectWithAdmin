@@ -1,9 +1,14 @@
 import axios from 'axios';
-import React, { useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
-   const navigate= useNavigate()
+   const navigate= useNavigate();
+   const userRef= useRef()
+  
+   useEffect(()=>{
+     //userRef.current.style.backgroundColor="green";
+   },[])
 
     const [user, setUser] = useState({
         username:"",
@@ -34,8 +39,10 @@ const Login = () => {
 
      localStorage.setItem("userData", JSON.stringify({id:data.id, name:data.name, role_id:data.role_id}) )
      
-
+     
      navigate("/")
+
+
     } catch (error) {
          alert("invalid Username Or Password");
     } 
@@ -70,7 +77,7 @@ const Login = () => {
                                                         <span className="input-group-text border-end-0">
                                                             <i className="isax isax-sms-notification" />
                                                         </span>
-                                                        <input name='username' onChange={handleChange} type="text" defaultValue className="form-control border-start-0 ps-0" placeholder="Enter username" />
+                                                        <input ref={userRef}  name='username' onChange={handleChange} type="text" defaultValue className="form-control border-start-0 ps-0" placeholder="Enter username" />
                                                     </div>
                                                 </div>
                                                 <div className="mb-3">

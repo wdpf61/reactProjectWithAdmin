@@ -57,6 +57,15 @@ class Order extends Model implements JsonSerializable{
 		}
 			return $data;
 	}
+	public static function allOrder(){
+		global $db,$tx;
+		$result=$db->query("select id,customer_id,order_date,delivery_date,shipping_address,order_total,paid_amount,remark,status_id,discount,vat,created_at,updated_at from {$tx}orders");
+		$data=[];
+		while($order=$result->fetch_object()){
+			$data[]=$order;
+		}
+			return $data;
+	}
 	public static function pagination($page=1,$perpage=10,$criteria=""){
 		global $db,$tx;
 		$top=($page-1)*$perpage;
@@ -79,6 +88,7 @@ class Order extends Model implements JsonSerializable{
 		$order=$result->fetch_object();
 			return $order;
 	}
+
 	static function get_last_id(){
 		global $db,$tx;
 		$result =$db->query("select max(id) last_id from {$tx}orders");

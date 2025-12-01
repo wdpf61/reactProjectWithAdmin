@@ -1,0 +1,37 @@
+/* Hide items marked .no-print when printing and show only .invoice */
+@media print {
+  /* hide everything first */
+  body * {
+    visibility: hidden !important;
+  }
+
+  /* show invoice and its children */
+  .invoice, .invoice * {
+    visibility: visible !important;
+  }
+
+  /* position invoice at top-left for printing */
+  .invoice {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* if you want smaller margins for printers */
+    margin: 0;
+    padding: 0;
+  }
+
+  /* ensure no header/footer elements with fixed positioning appear */
+  .no-print {
+    display: none !important;
+  }
+}
+
+/* Optional: hide the print button on print */
+@media print {
+  .actions { display: none !important; }
+}
+
+/* Basic styles for on-screen view */
+.table { width: 100%; border-collapse: collapse; }
+.table th, .table td { border: 1px solid #ddd; padding: 6px; }

@@ -58,6 +58,21 @@ class OrderDetail extends Model implements JsonSerializable{
 		}
 			return $data;
 	}
+	public static function find_by_order_idwithProductName($id){
+		global $db,$tx;
+		$result=$db->query("select od.id,od.order_id,od.product_id,p.name name,od.qty,od.price,od.vat,od.discount,od.created_at,od.updated_at from {$tx}order_details od, 
+		 {$tx}products p
+		
+		where od.order_id= $id 
+		and p.id = od.product_id 
+		
+		");
+		$data=[];
+		while($orderdetail=$result->fetch_object()){
+			$data[]=$orderdetail;
+		}
+			return $data;
+	}
 	public static function pagination($page=1,$perpage=10,$criteria=""){
 		global $db,$tx;
 		$top=($page-1)*$perpage;

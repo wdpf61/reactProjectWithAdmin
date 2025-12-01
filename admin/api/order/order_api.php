@@ -2,10 +2,23 @@
 class OrderApi
 {
 	public function __construct() {}
+
 	function index()
 	{
 		echo json_encode(["orders" => Order::all()]);
 	}
+
+     function orderInvoice($data){
+       $id= $data['id'];
+	   $customer= Customer::find(Order::find($id)->customer_id);   
+       echo json_encode(
+		[
+		"order" => Order::find($id)  , 
+		"order_details"=> OrderDetail::find_by_order_idwithProductName($id),
+		"customer"=> $customer
+	]);
+	}
+
 	function pagination($data)
 	{
 		$page = $data["page"];
@@ -15,6 +28,10 @@ class OrderApi
 	function find($data)
 	{
 		echo json_encode(["order" => Order::find($data["id"])]);
+	}
+	function findOderDetails($data)
+	{
+		echo json_encode([ "order" => Order::find($data["id"]), "OrderDetails"=>OrderDetail::find_by_order_id($data["id"])]);
 	}
 	function delete($data)
 	{
@@ -155,4 +172,6 @@ class OrderApi
 
 		echo json_encode(["success" => "success"]);
 	}
+
+	
 }
