@@ -250,7 +250,9 @@ if(isset($_GET["class"])){
       
 
   }else{
-     echo $class." class not exits.";
+    throw new Exception("class not exits.", 1);
+    
+    //  echo $class." class not exits.";
   }
     
 

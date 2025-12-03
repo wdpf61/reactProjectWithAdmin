@@ -1,11 +1,18 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useReducer, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { initialState, reducer } from '../../components/Reducer';
 
 
 const RoleList = () => {
   const baseUrl = import.meta.env.VITE_API_BASE_URL;
+  const [roles, setRoles] = useState([]);
+
+
+  const [state, dispatch] = useReducer(reducer, initialState)
+  
   const getRoles = () => {
+    dispatch({type:"Loading"});
     axios({
       url: `${baseUrl}/role`,
       method: "GET",
@@ -14,13 +21,16 @@ const RoleList = () => {
       .then((res) => {
         console.log(res.data);
         setRoles(res.data.roles)
+
+         dispatch({type:"Fetch", payload:res.data.roles });
       })
       .catch((err) => {
         console.log(err);
+         dispatch({type:"err", payload:err });
       });
   }
 
-  const [roles, setRoles] = useState([]);
+
   useEffect(
     () => {
       getRoles()
@@ -45,6 +55,15 @@ const RoleList = () => {
       .catch(err => console.log(err))
   }
 
+
+  
+
+   if(state.loading){
+     return (<div>Loading</div>);
+   }else if(state.err){
+     return (<div>Net work Error</div>);
+   }else {
+   
   return (
     <>
 
@@ -59,7 +78,7 @@ const RoleList = () => {
           </tr>
         </thead>
         <tbody>
-          {roles.map((role, i) => (
+          {state.data.map((role, i) => (
             <tr key={i}>
               <th scope="row">{++i}</th>
               <td>{role.name}</td>
@@ -78,7 +97,7 @@ const RoleList = () => {
       </table>
 
     </>
-  )
+  )}
 }
 
 export default RoleList

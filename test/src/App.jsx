@@ -18,6 +18,7 @@ import Parent from './context/Parent'
 import { createContext, useContext } from 'react'
 import OrderList from './pages/order/OrderList'
 import OrderInvoice from './pages/order/OrderInvoice'
+import Counter from './components/Counter'
 
 export const  UserContext= createContext();
 
@@ -63,6 +64,10 @@ function App() {
              <Route path='/order/invoice/:id' element={<OrderInvoice/>}/>
 
              <Route path='/purchase/create' element={<Purchase/>}/>
+
+
+
+             <Route path='/counter' element={<Counter/>}/>
 
              
           </Route>
