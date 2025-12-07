@@ -19,6 +19,8 @@ import { createContext, useContext } from 'react'
 import OrderList from './pages/order/OrderList'
 import OrderInvoice from './pages/order/OrderInvoice'
 import Counter from './components/Counter'
+import CustomerListPaginantion from './pages/customer/CustomerListPaginantion'
+import HeavyCalculation from './components/HeavyCalculation'
 
 export const  UserContext= createContext();
 
@@ -68,6 +70,9 @@ function App() {
 
 
              <Route path='/counter' element={<Counter/>}/>
+             
+             <Route path='/customerPage' element={<CustomerListPaginantion/>}/>
+             <Route path='/use/memo' element={<HeavyCalculation/>}/>
 
              
           </Route>

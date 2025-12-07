@@ -22,6 +22,7 @@ class CustomerApi extends Api{
 		$perpage=$data["perpage"];
 		echo json_encode(["customers"=>Customer::pagination($page,$perpage),"total_records"=>Customer::count()]);
 	}
+	
 	function find($data){
 		echo json_encode(["customer"=>Customer::find($data["id"])]);
 	}
