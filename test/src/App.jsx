@@ -21,6 +21,8 @@ import OrderInvoice from './pages/order/OrderInvoice'
 import Counter from './components/Counter'
 import CustomerListPaginantion from './pages/customer/CustomerListPaginantion'
 import HeavyCalculation from './components/HeavyCalculation'
+import WithoutUseCallback from './components/UseCallback'
+import WithUseCallback from './components/UseCallback'
 
 export const  UserContext= createContext();
 
@@ -72,7 +74,10 @@ function App() {
              <Route path='/counter' element={<Counter/>}/>
              
              <Route path='/customerPage' element={<CustomerListPaginantion/>}/>
+             
+             
              <Route path='/use/memo' element={<HeavyCalculation/>}/>
+             <Route path='/use/callback' element={<WithUseCallback/>}/>
 
              
           </Route>
@@ -84,6 +89,8 @@ function App() {
      {/* <UserContext.Provider value={user}>
      <Parent />
      </UserContext.Provider> */}
+
+     
     </>
   )
 }
