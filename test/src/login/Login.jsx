@@ -36,12 +36,7 @@ const Login = () => {
      console.log( res.data);
      const data= res.data
      localStorage.setItem( "token",data.token)
-
-     localStorage.setItem("userData", JSON.stringify({id:data.id, name:data.name, role_id:data.role_id}) )
-     
-     
      navigate("/")
-
 
     } catch (error) {
          alert("invalid Username Or Password");
