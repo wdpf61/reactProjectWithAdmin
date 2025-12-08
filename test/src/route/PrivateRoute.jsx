@@ -3,7 +3,7 @@ import { Navigate } from "react-router-dom";
 
 export const AuthContext= createContext()
 
-export default function PrivateRoute({ children }) {
+const PrivateRoute = ({ children }) =>{
   
 function decodeJWT(token) {
   try {
@@ -21,15 +21,10 @@ function decodeJWT(token) {
   }
 }
 
-
-
 const token = localStorage.getItem("token");
 const userData = decodeJWT(token);
 // console.log("tokendecode",decoded);
-
 // const userData = JSON.parse(localStorage.getItem( "userData")) ;
-
-
   if( token){
     return (
        <AuthContext.Provider value={userData}>
@@ -40,8 +35,6 @@ const userData = decodeJWT(token);
   }else{
    return  <Navigate to="/login" />
   }
- 
-
-
-
 }
+
+export default PrivateRoute
