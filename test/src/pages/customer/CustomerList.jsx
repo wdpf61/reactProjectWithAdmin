@@ -5,7 +5,7 @@ import useFetchApi from '../../hooks/UseFetchApi';
 
 const CustomerList = () => {
 
-  const baseUrl = import.meta.env.VITE_API_BASE_URL;
+
   const imgUrl = import.meta.env.VITE_IMG_URL;
 
    const {loading, data, err} = useFetchApi(`${baseUrl}/customer`);

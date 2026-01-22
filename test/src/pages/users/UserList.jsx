@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 
 const UserList = () => {
-
+ const baseUrl = import.meta.env.VITE_API_BASE_URL;
     const [users, setUsers] = useState([]);
 
     useEffect(

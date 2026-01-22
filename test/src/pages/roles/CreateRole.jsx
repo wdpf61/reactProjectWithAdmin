@@ -32,12 +32,12 @@ const CreateRole = () => {
      axios({
       url:`${baseUrl}/role/save`,
       method:"POST",
-      data:{role}
+      data: {"name":role.name}
      })
      .then(res=>{
       console.log(res)
       if(res){
-        navigate('/role');
+        // navigate('/role');
       }
      } )
      .catch(err=> console.log(err))
@@ -53,10 +53,10 @@ const CreateRole = () => {
          <input name='name' type="text" onChange={handleChange} />
       </div>
 
-      <div>
+      {/* <div>
          <label htmlFor="">email</label> <br />
          <input name='email' type="text" onChange={handleChange} />
-      </div>
+      </div> */}
 
       <br />
       <br />

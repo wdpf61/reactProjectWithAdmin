@@ -2,7 +2,8 @@ import axios from 'axios';
 import React, { useEffect, useReducer, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { initialState, reducer } from '../../components/Reducer';
-
+import api from "../../api/axios";
+import {ENDPOINTS} from "../../api/endpoint";
 
 const RoleList = () => {
   const baseUrl = import.meta.env.VITE_API_BASE_URL;
@@ -13,8 +14,9 @@ const RoleList = () => {
   
   const getRoles = () => {
     dispatch({type:"Loading"});
-    axios({
-      url: `${baseUrl}/role`,
+   
+    api({
+       url: `${baseUrl}/role`,
       method: "GET",
       data: {}
     })
@@ -46,7 +48,7 @@ const RoleList = () => {
     axios({
       url: `${baseUrl}/role/delete`,
       method: "DELETE",
-      data: { id: id }
+      data: { id }
     })
       .then(res => {
         console.log(res);
