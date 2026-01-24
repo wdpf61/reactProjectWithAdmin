@@ -9,7 +9,7 @@ const OrderList = () => {
     function fetchOrder() {
         axios(
             {
-                url: `${baseUrl}/order/`,
+                url: `${baseUrl}/order`,
                 method: "GET",
                 data: {}
             }
@@ -20,15 +20,15 @@ const OrderList = () => {
                 setloading(false);
             })
             .catch(err => {
-                console.log(err.data);
+                console.log(err);
             })
     }
 
 
-  useEffect(() => {
-     fetchOrder() 
-  }, [])
-  
+    useEffect(() => {
+        fetchOrder()
+    }, [])
+
 
 
 
@@ -48,7 +48,7 @@ const OrderList = () => {
                         <th>order_total</th>
                         <th>shipping_address</th>
                         <th>action</th>
-                       
+
                     </tr>
                 </thead>
 
@@ -60,7 +60,7 @@ const OrderList = () => {
                             <td>{o.order_total}</td>
                             <td>{o.shipping_address}</td>
                             <td> <Link to={`/order/invoice/${o.id}`} className='btn btn-info'>View</Link></td>
-                            
+
                         </tr>
                     ))}
                 </tbody>

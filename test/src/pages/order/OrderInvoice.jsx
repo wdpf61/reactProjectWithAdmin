@@ -34,7 +34,7 @@ const OrderInvoice = () => {
 
             })
             .catch(err => {
-                console.log(err.data);
+                console.log(err);
             })
     }
 
@@ -142,7 +142,7 @@ const OrderInvoice = () => {
 
                                             <tr key={i}>
                                                 <td>{++i}</td>
-                                                <td className="text-dark">{od.name}</td>
+                                                <td className="text-dark">{od.product.name}</td>
                                                 <td>{od.qty}</td>
                                                 <td>{od.price}</td>
                                                 <td>{od.discount}</td>
