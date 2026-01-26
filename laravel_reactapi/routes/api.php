@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\OrderController;
 use App\Http\Controllers\Api\RoleController;
 use Illuminate\Http\Request;
@@ -8,6 +9,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:sanctum');
+
+Route::post("auth/login", [AuthController::class,"login"]);
+Route::middleware('auth:sanctum')->group( function(){
+    Route::post("auth/logout", [AuthController::class,"logout"]);
+});
+
 
 Route::get("role", [RoleController::class,"index"]);
 Route::post("role/save", [RoleController::class,"store"]);

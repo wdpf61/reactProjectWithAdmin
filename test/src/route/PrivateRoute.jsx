@@ -22,7 +22,8 @@ function decodeJWT(token) {
 }
 
 const token = localStorage.getItem("token");
-const userData = decodeJWT(token);
+// const userData = decodeJWT(token);
+const userData = JSON.parse(localStorage.getItem("user")) ;
 // console.log("tokendecode",decoded);
 // const userData = JSON.parse(localStorage.getItem( "userData")) ;
   if( token){

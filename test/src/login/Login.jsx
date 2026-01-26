@@ -30,12 +30,13 @@ const Login = () => {
 
     try {
         let res= await axios.post(`${baseUrl}/auth/login`,{
-        username:user.username,
+        email:user.username,
         password:user.password
     })
      console.log( res.data);
      const data= res.data
-     localStorage.setItem( "token",data.token)
+     localStorage.setItem( "token", data.token)
+     localStorage.setItem( "user", JSON.stringify(data.token))
      navigate("/")
 
     } catch (error) {

@@ -1,10 +1,31 @@
 import React, { useContext } from 'react'
 import { AuthContext } from '../route/PrivateRoute';
-
+ import axios from "axios";
 const Header = () => {
 
   const user= useContext(AuthContext);
   console.log(user);
+  const baseUrl = import.meta.env.VITE_API_BASE_URL;
+
+function signOut() {
+  axios.post(`${baseUrl}/auth/logout`, {}, {
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem("token")}`,
+      Accept: "application/json"
+    }
+  })
+  .then((res) => {
+    console.log(res);
+    
+    // localStorage.removeItem("token");
+    // window.location.href = "/login"; // or navigate()
+  })
+  .catch(error => {
+    console.error("Logout failed", error);
+  });
+}
+
+
   return (
     <>
     
@@ -327,9 +348,9 @@ const Header = () => {
                 </div>
                 <hr className="dropdown-divider my-2" />
                 {/* Item*/}
-                <a className="dropdown-item logout d-flex align-items-center" href="login.html">
+                <button onClick={signOut}  className="dropdown-item logout d-flex align-items-center" >
                   <i className="isax isax-logout me-2" />Sign Out
-                </a>
+                </button>
               </div>
             </div>
           </div>
@@ -352,9 +373,9 @@ const Header = () => {
           <a className="dropdown-item d-flex align-items-center" href="account-settings.html">
             <i className="isax isax-setting me-2" />Settings
           </a>
-          <a className="dropdown-item logout d-flex align-items-center" href="login.html">
+          <button onClick={signOut} className="dropdown-item logout d-flex align-items-center">
             <i className="isax isax-logout me-2" />Signout
-          </a>
+          </button>
         </div>
       </div>
       {/* /Mobile Menu */}
